@@ -1,0 +1,41 @@
+Fractional Binary Numbers
+	Shifting right divides by 2
+	Shifting left multiplies by 2
+	Numbers of form 0.11111... are just below 1.0
+Limitations: can only represent numbers of form x/2^k; many can't be represented (1/3)
+
+Single Precision has less precision than integers in some cases
+
+=========================================
+
+Normalized Values:
+E	=	Exp	-	Bias
+(-126-127)	(1-254)		(127)
+Leading 1 is implied in M=1.xxxxx..., where x represents fraction
+
+	ex)	15213 = 11101101101101 = 1.1101101101101 * 2^13
+		M = 1.1101101101101
+		frac = 11011011011010000000000
+
+Denormalized Values:
+E	=	-Bias	+	1
+M=0.xxxxx...
+
+Exceptional case when exp is 000...0
+Exceptional case when exp is 111...1
+
+NaN = "Not a number"
+
+Rounding:
+	If below halfway point, round down
+	If above halfway point, round up
+	If exactly at halfway point, round up OR down in order to get an even
+
+=========================================
+
+Casting int to float (single precision) causes loss of precision; casting it back still retains that loss of precision
+
+Doubles do not overflow, but have a saturation point. Changing sign bit of doubles or floats does not change precision. 
+
+Floating Point arithmetic/multiplication is NOT associative (nor distributive).
+---------------------------------------------------------------------------------------------------

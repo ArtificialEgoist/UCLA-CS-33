@@ -1,0 +1,110 @@
+Glenn Reinman
+CS199: Undergrad Research (Recommended)
+
+=========================================
+
+CS33 Grading:
+Exams (45%)
+	Midterm, 20%
+	Final, 25%
+	Open book, open notes
+Labs (50%)
+	5 labs, 10% each
+	Work alone
+Homework (5%)
+	5 assignments, 1% each
+	Electronic submission
+
+=========================================
+
+Tools/Skills:
+C Programming
+x86 Assembly (ignore ugly stuff)
+Basic Open MP
+Basic CUDA
+Basic MIPS
+Debugging (gdb - GNU debugger)
+Rudimentary Understanding of: an Editor and Linux
+
+=========================================
+
+(text)				 (text)			     (text)			 (binary)		  (binary)
+hello.c --pre-processor (cpp)--> hello.i --compiler (ccl)--> hello.s --assembler (as)--> hello.o --linker (ld)--> hello
+
+---------------------------------------------------------------------------------------------------
+
+Base 10's Problems with Electronic Implementation:
+	Hard to store (ENIAC used 10 vacuum tubes/digit)
+	Hard to transmit (Need high precision to encode 10 signl levels on single wire)
+	Messy to implement digital logic functions (addition, multiplicable, etc.)
+
+Binary Representations:
+	Easy to store with bistable elements
+	Reliably transmitted on noisy and inaccurate wires
+
+=========================================
+
+Byte-Oriented Memory Organization:
+	Programs Refer to Virtual Addresses
+		Conceptually very large array of bytes (each byte is 8 bits)
+		2^10 = 1 KB, 2^20 = 1 MB, 2^30 = 1 GB, etc...
+		Implemented with hierarchy of different memory types
+		System provides address space private to particular "process"
+	Compiler + Run-Time System Control Allocation
+
+Machine Words (Machine has "Word Size")
+	Nominal size of integer-valued data (including addresses)
+	32-bit systems (4 bytes) limits addresses to 4 GB
+	64-bit systems (8 bytes) potentially has an address of 1.8*10^19 bytes
+
+Byte Ordering: How should bytes within multi-byte word be ordered in memory?
+	"Big Endian" machines
+		Least significant byte has highest address
+	"Little Endian" machines
+		Least significant byte has lowest address
+			ex)	BC
+				DE
+				Little Endian: DE BC		Big Endian: BC DE
+	Storing with 4-byte representation 0x01234567
+	Address given by &x is arbitrarily 0x100
+			0x100	0x101	0x102	0x103
+	Big Endian:	01	23	45	67
+	Little Endian:	67	45	23	01
+
+Reading Byte-REversed Listings
+	Text representation of binary machine code
+		Value: 0x12ab
+		Pad to 4 bytes: 0x000012ab
+		Split: 00 00 12 ab
+		Reverse: ab 12 00 00
+
+Printf directives:
+	%p: Print pointer
+	%x: Print Hexadecimal
+
+=========================================
+
+Machine-Level Code Representation
+	Program encoded as sequence of instructions: arithmetic operation, read/write memory, conditional branch
+	Instructions encoded as bytes
+		RISC (Reduced Instruction Set Computer) vs. CISC ( Complex Instruction Set Computer)
+		RISC: Alpha's, Sun's, Mac's use 4 byte instructions, CISC: PC's use variable length instructions
+		RISC became more popular as memory increased; more broken-down instructions, but they can be run in parallel
+	Most code not binary copatible; programs are also byte sequences
+
+=========================================
+
+Boolean Algebra
+	Developed by George Boole in 19th Century
+Integer Algebra forms a "ring"
+
+Logic Operators vs. Bit-wise Operators
+	Logic: anything nonzero is "true", zero is "false"
+	Always returns 0 or 1
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------

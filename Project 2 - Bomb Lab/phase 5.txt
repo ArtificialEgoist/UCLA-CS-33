@@ -1,0 +1,4 @@
+aaaabg
+
+ASCII values (weight based on the bomb program) must add up to specified value, or 49 in this case.
+a + a + a + a + b + g = 10 + 10 + 10 + 10 + 6 + 3 = 49

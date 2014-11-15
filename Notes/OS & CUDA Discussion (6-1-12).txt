@@ -1,0 +1,45 @@
+Exception: change in control flow in response to a system event
+	Asynchronous: caused by events external to processor
+	Synchronous: result of an instruction
+		-traps are intentional, gives control to next instruction (breakpoint traps)
+		-faults are unintentional; might be recoverable (page fault)
+		-aborts are unintentional and unrecoverable (parity error)
+
+Page fault: virtual page is accessed, but there's no physical page translation (access memory that isn't on RAM but on disk); as an exception, it transfers control to the OS
+
+Linkers:
+	-as is the assembly file
+
+MIPS: know how to read and interpret it for the final!
+	-used for embedded systems
+----------------------------------------------------------------------------------------------------
+
+12 functions to implement in CUDA
+
+Most will be set to global or device. Global functions are called from CPU, but operation happens on GPU.
+A function with device is called from some GPU thread. So a global function calls a device function, which can call another device function, etc. (Device functions can only be called by global or other device ones.)
+
+Don't change header.h file (so don't make allocateData global or device). But initializeData seems like it should be in parallel, so we can use it to call a global function in the main.c file.
+
+========================================================================================
+
+__global void kernel_initializeData() //***add this***
+
+void initializeData(......)
+{
+
+
+kernel_initializeData<<myGrid,myBlocks>>(param1, ...); //***add this***
+
+}
+
+========================================================================================
+
+For allocateData, we can use cuda malloc instead of regular malloc. Maybe use cuda memset instead of regular memset in initializeData.
+
+========================================================================================
+
+if(threadIdx.x==0)
+	...
+
+syncthreads();

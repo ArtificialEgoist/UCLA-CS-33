@@ -1,0 +1,18 @@
+0 1 3 6 10 15
+
+
+
+Process:
+
+int t[6];
+if (t[0]!=0)
+	explode_bomb();
+for(int i=0; i<5; i++)
+	if(t[i+1]!=i+1+t[i])
+		explode_bomb();
+
+Answer:
+t[0]=0 //given as %rsp
+t[1]=1 //must be t[0] + i + 1, where i=0
+t[2]=3 //must be t[1] + i + 1, where i=1
+and so on...

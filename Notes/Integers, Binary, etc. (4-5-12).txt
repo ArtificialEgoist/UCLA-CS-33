@@ -1,0 +1,37 @@
+15213: 0011101101101101
+-15213: 1100010010010011 (2's complement)
+
+2's complement gives a sign (unlike unsigned)
+	|TMin| = TMax+1 (2's complement is asymmetric)
+
+Casting doesn't change bit representation
+	All results are nonnegative (negative values become large positive values)
+
+2's complement -> 	unsigned
+0		->	0
+-1		->	UMax (smaller negative values become the largest positive ones)
+Tmin		->	TMax+1
+
+=========================================
+
+Signed values are implicitly cast to unsigned, possibly unintentionally
+Can't negate a TMin value (i.e. -8 with 1000); inverting it and adding 1 would give the same value, 1000, or -8
+
+Adding integers results in the sum % 2^w
+
+Positive overflow: 	0111	7
+			0001	1
+			----
+			1000	-8 (should be 8)
+
+Negative overflow:	1000	-8
+			1111	-1
+			----
+			0111	7 (should be -9)
+
+Overflow happens if:
+	Both u, v are negative, and the sum is nonnegative
+	Both u, v are nonnegative, and the sum is negative
+
+Multiplying integers results in the product % 2^w
+---------------------------------------------------------------------------------------------------
